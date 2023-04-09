@@ -8,6 +8,7 @@ from data import (
     process_image_file_medusa,
 )
 
+tf.compat.v1.disable_v2_behavior()
 # To remove TF Warnings
 tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
