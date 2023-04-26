@@ -11,7 +11,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 parser = argparse.ArgumentParser(description='COVID-Net Training Script')
 parser.add_argument('--epochs', default=100, type=int, help='Number of epochs')
-parser.add_argument('--lr', default=0.0002, type=float, help='Learning rate')
+parser.add_argument('--lr', default=0.002, type=float, help='Learning rate')
 parser.add_argument('--bs', default=8, type=int, help='Batch size')
 parser.add_argument('--weightspath', default='models/COVIDNet-CXR-2', type=str,
                     help='Path to model files, defaults to \'models/COVIDNet-CXR-2\'')
