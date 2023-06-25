@@ -81,7 +81,7 @@ pred = sess.run(pred_tensor, feed_dict=feed_dict)
 #Resize and show image
 img = cv2.imread(args.imagepath,0)
 img = cv2.resize(img, dsize=(480,480))
-
+print(img.shape)
 print('\n')
 print('Prediction: {}'.format(inv_mapping[pred.argmax(axis=1)[0]]))
 print('Confidence')
