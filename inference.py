@@ -80,10 +80,8 @@ else:
 pred = sess.run(pred_tensor, feed_dict=feed_dict)
 
 #Resize and show image
-img = cv2.imread(args.imagepath,0)
-img = cv2.resize(img, dsize=(480,480))
-img = Image.open(img)
-
+img = Image.open(args.imagepath)
+img = img.resize((448,448))
 #print(img.shape)
 
 print('\n')
