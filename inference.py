@@ -2,6 +2,7 @@ import numpy as np
 import tensorflow as tf
 import os, argparse
 import cv2
+from google.colab.patches import cv2_imshow
 
 from data import (
     process_image_file,
@@ -77,8 +78,13 @@ else:
 
 pred = sess.run(pred_tensor, feed_dict=feed_dict)
 
+#Resize and show image
+img = cv.imread(imagepath,0)
+img = cv.resize(img,(480,480))
+
+print('\n')
 print('Prediction: {}'.format(inv_mapping[pred.argmax(axis=1)[0]]))
 print('Confidence')
 print(' '.join('{}: {:.3f}'.format(cls.capitalize(), pred[0][i]) for cls, i in mapping.items()))
-print('**DISCLAIMER**')
-print('Do not use this prediction for self-diagnosis. You should check with your local authorities for the latest advice on seeking medical assistance.')
+print('This project is for research only, do not use as medical purposes !')
+cv2_imshow(img)
