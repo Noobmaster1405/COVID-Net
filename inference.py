@@ -79,7 +79,7 @@ else:
 pred = sess.run(pred_tensor, feed_dict=feed_dict)
 
 #Resize and show image
-img = cv2.imread("imagepath",0)
+img = cv2.imread(args.imagepath,0)
 img = cv2.resize(img, dsize=(480,480))
 
 print('\n')
