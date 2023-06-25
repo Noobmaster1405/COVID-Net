@@ -2,7 +2,8 @@ import numpy as np
 import tensorflow as tf
 import os, argparse
 import cv2
-
+import matplotlib.pyplot as plt
+from PIL import Image
 
 from data import (
     process_image_file,
@@ -81,6 +82,8 @@ pred = sess.run(pred_tensor, feed_dict=feed_dict)
 #Resize and show image
 img = cv2.imread(args.imagepath,0)
 img = cv2.resize(img, dsize=(480,480))
+img = Image.open(img)
+
 #print(img.shape)
 
 print('\n')
@@ -88,4 +91,7 @@ print('Prediction: {}'.format(inv_mapping[pred.argmax(axis=1)[0]]))
 print('Confidence')
 print(' '.join('{}: {:.3f}'.format(cls.capitalize(), pred[0][i]) for cls, i in mapping.items()))
 print('This project is for research only, do not use as medical purposes !')
-cv2.imshow('', img) 
+
+plt.imshow(img)
+plt.show()
+display(img)
