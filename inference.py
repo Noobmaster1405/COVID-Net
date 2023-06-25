@@ -92,4 +92,4 @@ print('This project is for research only, do not use as medical purposes !')
 
 plt.imshow(img)
 plt.show()
-display(img)
+
